@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(233, 147, 245);
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+}
+
+header {
+    padding: 24px;
+    background-color: bisque;
+    color:rgba(32, 1, 44, 0.747);
+}
+
+nav a {
+    color:brown;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+main {
+    max-width: 900px;
+    margin: 32px;
+    padding: 0 24px;
+}
+
+section {
+    margin-bottom: 32px;
+    border: 8px;
+    background-color: rgb(231, 190, 243);
+    color:rgb(255, 255, 255);
+}
+
+article {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(252, 231, 253);
+    color:black;
+}
+
+.destaque {
+    color:antiquewhite;
+    font-weight: bold;
+}
+
+.lista-cursos {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+.curso {
+    flex: 1;
+    border-radius: 100px;
+    padding: 24px;
+    text-align: center;
+}
+
+@media (max-width: 400px) {
+    .lista-cursos {
+        flex-direction: column;
+    }
+
+    .curso {
+        padding: 10px;
+    }
+}
