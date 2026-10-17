@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="navbar navbar-expand navbar-dark">
     <router-link to="/">Home</router-link> |
     <router-link to="/pedidos">Pedidos</router-link>
   </nav>
