@@ -1,0 +1,21 @@
+✔ percorre páginas e remove duplicados (36.541853ms)
+✔ rejeita ID inválido (1.668094ms)
+✔ trata erro HTTP (0.316184ms)
+✔ rejeita formato inválido (1.368967ms)
+✔ filtra UF e partido (2.91524ms)
+✔ filtra favoritos (0.180673ms)
+✔ ordena sem modificar entrada (56.981396ms)
+✔ formata data e ausência (8.035344ms)
+✔ bloqueia URL insegura (0.418742ms)
+✔ escapa aspas CSV (0.204881ms)
+✔ neutraliza fórmula CSV (0.399353ms)
+✔ CSV inclui BOM (1.925769ms)
+✔ 27 UFs sem repetição (2.234209ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2593.480809
