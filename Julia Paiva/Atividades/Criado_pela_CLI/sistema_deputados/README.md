@@ -1,142 +1,165 @@
-# Radar Cívico • Sistema de Consulta de Deputados
+# Radar Cívico — Sistema de Consulta de Deputados
 
-**Disciplina:** Desenvolvimento de Interfaces  
-**Aluna:** Julia Paiva  
-**Tecnologias:** Vue 3, JavaScript, Vue CLI 5, HTML e CSS.
+Aplicação web desenvolvida para consultar deputados federais brasileiros e visualizar informações públicas disponibilizadas pela Câmara dos Deputados.
 
-Aplicação acadêmica para consultar deputados federais por nome e visualizar dados pessoais e canais de contato do gabinete, consumindo a API pública oficial da Câmara dos Deputados.
+**Acesse a aplicação:** https://super-tarsier-a1c51f.netlify.app
 
-## Executar no Windows
+## Sobre o projeto
 
-Instale Node.js LTS e abra o Prompt de Comando nesta pasta:
+O Radar Cívico reúne informações públicas de deputados federais em uma interface de pesquisa. A aplicação consome a API de Dados Abertos da Câmara dos Deputados e permite consultar a listagem de parlamentares, aplicar filtros e acessar páginas com informações individuais.
 
-```bat
+## Funcionalidades
+
+- Pesquisa de deputados pelo nome.
+- Exibição de fotografia, nome, partido e unidade federativa.
+- Filtros por estado (UF) e partido.
+- Ordenação alfabética crescente e decrescente.
+- Paginação dos resultados.
+- Página de detalhes do deputado, com informações disponíveis na API.
+- Acesso a e-mail, telefone, localização do gabinete e canais oficiais, quando disponíveis.
+- Adição e remoção de deputados favoritos, com armazenamento no navegador.
+- Alternância entre tema claro e escuro.
+- Exportação dos resultados filtrados para CSV.
+- Cópia do e-mail do gabinete, impressão do perfil e acesso a links de contato.
+- Interface responsiva e tratamento de carregamento, erros e resultados vazios.
+
+Os favoritos e as preferências de tema são armazenados no navegador por meio de `localStorage`; não há sincronização entre dispositivos.
+
+## Tecnologias utilizadas
+
+- **Vue.js 3** — construção da interface e dos componentes.
+- **JavaScript** — lógica da aplicação e integração com a API.
+- **HTML e CSS** — estrutura, estilos e responsividade.
+- **Vue CLI 5** — ambiente de desenvolvimento e compilação.
+- **API REST da Câmara dos Deputados** — consulta aos dados públicos.
+
+### API
+
+A aplicação utiliza a API de Dados Abertos da Câmara dos Deputados:
+
+- API: https://dadosabertos.camara.leg.br/api/v2
+- Documentação: https://dadosabertos.camara.leg.br/swagger/api.html
+
+Entre os recursos utilizados estão a listagem de deputados (`GET /deputados`) e a consulta de um deputado específico (`GET /deputados/{id}`).
+
+## Como executar localmente
+
+### Requisitos
+
+- Node.js e npm.
+- Editor de código de sua preferência.
+
+### Instalação e execução
+
+Na pasta raiz do projeto, execute:
+
+```bash
 npm install
 npm run serve
 ```
 
-Abra o endereço Local informado no terminal. Para encerrar, use Ctrl+C. Alternativamente, execute `instalar.cmd` e depois `iniciar.cmd`.
+Abra no navegador o endereço local informado pelo terminal (normalmente `http://localhost:8080/`).
 
-**Não abra public/index.html diretamente.** Os componentes Vue precisam ser processados pelo Vue CLI.
+Para encerrar o servidor, pressione `Ctrl + C` no terminal.
 
-## Criação pela CLI: requisito da atividade
+O projeto também inclui os arquivos `instalar.cmd`, `iniciar.cmd` e `gerar-producao.cmd`, que auxiliam, respectivamente, na instalação das dependências, na inicialização da aplicação e na geração da versão de produção no Windows.
 
-A base foi preparada com a estrutura do Vue CLI 5 e as dependências do projeto da aula fornecido pela aluna. A execução de `vue create` não foi concluída neste ambiente. Para cumprir e comprovar esse requisito, execute **CRIAR_PELA_CLI.cmd**, na raiz do pacote extraído. Ele cria uma base real pela CLI em uma pasta nova, aplica o código entregue e reinstala as dependências. Não sobrescreve sua pasta de atividades existente.
+## Testes e comandos
 
-Depois use a pasta `Criado_pela_CLI/sistema_deputados` como projeto final, copiando-a para `Julia Paiva/Atividades/sistema_deputados` no repositório. Consulte o manual antes de executar. Não declare a etapa concluída antes de rodar o atalho e conferir o resultado.
+Os comandos disponíveis no `package.json` são:
 
-O Vue CLI está em modo de manutenção, mas foi mantido aqui para acompanhar a tecnologia usada em sala, conforme o package.json enviado. Não foi substituído por Vite.
-
-## Funcionalidades obrigatórias implementadas
-
-- Busca por nome enviada à API oficial.
-- Cards com foto, nome, partido e UF.
-- Página de detalhes acessível por URL com hash.
-- Nome civil, nascimento, naturalidade e escolaridade, quando fornecidos.
-- E-mail e telefone do gabinete, localização do gabinete e redes sociais.
-- Tratamento explícito de campos ausentes: não inventa contatos ou informações.
-- Código separado em componentes, página, serviço de API e funções utilitárias.
-
-## Diferenciais
-
-- Filtros combinados por UF e partido.
-- Ordenação A–Z e Z–A.
-- Favoritos persistidos em localStorage, sem cadastro.
-- Modo claro/escuro persistido no navegador.
-- Paginação visual e contagem de resultados.
-- Exportação CSV de todos os resultados filtrados, não apenas da página atual.
-- Cópia do e-mail, links de contato e impressão do perfil.
-- Layout responsivo, foco visível, rótulos e link de salto para o conteúdo.
-- Estados de carregamento, erro, nenhum resultado, imagem indisponível e rota inexistente.
-- Cancelamento de consultas antigas, timeout e cache em memória por cinco minutos.
-- Percorre a paginação da API antes de aplicar os filtros locais.
-
-## API utilizada
-
-- Base: [Dados Abertos da Câmara](https://dadosabertos.camara.leg.br/api/v2).
-- Listagem: `GET /deputados`, com `nome`, `itens`, `pagina`, `ordem` e `ordenarPor`.
-- Detalhes: `GET /deputados/{id}`.
-- [Documentação oficial](https://dadosabertos.camara.leg.br/swagger/api.html).
-
-A consulta não fixa uma legislatura. O resultado é o conjunto retornado pela API para os parâmetros utilizados, não uma contagem fixa declarada pelo aplicativo. Os filtros de UF e partido atuam sobre a consulta completa carregada. Não há dados de deputados pré-cadastrados ou fallback fictício.
-
-## Navegação
-
-- `#/`: listagem.
-- `#/deputado/ID`: página de detalhes.
-- Outras rotas: página não encontrada.
-
-A navegação por hash foi implementada sem Vue Router para reduzir dependências e facilitar hospedagem estática. Voltar/avançar do navegador funciona. A página de detalhes pode ser aberta diretamente.
-
-## Comandos
-
-```bat
-npm run serve
+```bash
 npm run test
 npm run lint
 npm run build
 ```
 
-- `serve`: servidor de desenvolvimento.
-- `test`: testes de lógica e serviço HTTP com respostas controladas.
-- `lint`: verificação de código do Vue CLI.
-- `build`: versão de produção em `dist`.
+- `npm run test`: executa os testes automatizados localizados em `tests/`.
+- `npm run lint`: verifica o código da pasta `src/` com ESLint.
+- `npm run build`: gera a versão de produção na pasta `dist/`.
 
-Node 22 LTS é a referência recomendada para a instalação local deste pacote; a compilação completa nessa versão ainda precisa ser confirmada. Não há package-lock validado incluído: a primeira instalação o gera. Inclua esse arquivo no GitHub após instalar e validar.
+O projeto inclui testes para funções utilitárias e para o serviço HTTP, além de documentação dos procedimentos e resultados de validação em `docs/`.
 
-## Estrutura
+## Estrutura do projeto
 
 ```text
 sistema_deputados/
-  public/index.html
-  src/
-    assets/styles.css
-    components/DeputyCard.vue
-    components/DeputyPhoto.vue
-    components/StatusPanel.vue
-    pages/DeputyDetails.vue
-    services/api.mjs
-    utils.mjs
-    App.vue
-    main.js
-  tests/
-  docs/
-  prints/
-  package.json
-  babel.config.js
-  vue.config.js
-  jsconfig.json
-  netlify.toml
+├── docs/
+│   ├── CRITERIOS.md
+│   ├── GUIA_WINDOWS.md
+│   ├── TESTES_EXECUTADOS.txt
+│   ├── TESTES_NAVEGADOR.json
+│   └── VALIDACAO.md
+├── prints/
+│   ├── LEIA-ME.md
+│   └── Captura de Tela (88–95).png
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── logo.png
+│   │   └── styles.css
+│   ├── components/
+│   │   ├── DeputyCard.vue
+│   │   ├── DeputyPhoto.vue
+│   │   ├── HelloWorld.vue
+│   │   └── StatusPanel.vue
+│   ├── pages/
+│   │   └── DeputyDetails.vue
+│   ├── services/
+│   │   └── api.mjs
+│   ├── App.vue
+│   ├── main.js
+│   └── utils.mjs
+├── tests/
+│   ├── api.test.mjs
+│   └── utils.test.mjs
+├── .gitignore
+├── babel.config.js
+├── gerar-producao.cmd
+├── iniciar.cmd
+├── instalar.cmd
+├── jsconfig.json
+├── netlify.toml
+├── package.json
+├── package-lock.json
+├── README.md
+└── vue.config.js
 ```
 
-## Prints obrigatórios: ainda precisam ser capturados
+### Principais arquivos
 
-A pasta `prints` contém as instruções, não imagens simuladas. Após executar com dados reais, salve:
-
-1. `prints/listagem.png`: cards com deputados carregados.
-2. `prints/detalhes.png`: perfil com dados pessoais e contato do gabinete.
-
-Opcionalmente, inclua prints mobile, favoritos e modo escuro. Não entregue imagens do estado de erro como substitutas dos dois prints obrigatórios.
+| Arquivo | Responsabilidade |
+|---|---|
+| `src/App.vue` | Interface principal, pesquisa, filtros, favoritos e navegação. |
+| `src/components/DeputyCard.vue` | Exibição resumida de cada deputado. |
+| `src/components/DeputyPhoto.vue` | Exibição da fotografia do deputado. |
+| `src/components/StatusPanel.vue` | Estados de carregamento, erro e ausência de resultados. |
+| `src/pages/DeputyDetails.vue` | Página com informações detalhadas do deputado. |
+| `src/services/api.mjs` | Requisições e tratamento das respostas da API. |
+| `src/utils.mjs` | Funções auxiliares utilizadas pela aplicação. |
+| `src/assets/styles.css` | Estilos, temas e responsividade. |
+| `tests/` | Testes automatizados. |
+| `docs/` | Critérios, orientações e registros de validação. |
 
 ## Publicação
 
-O projeto ainda não está publicado e não tem URL pública confirmada. O manual explica como gerar `dist` e publicar no Netlify. Depois de publicar, acrescente aqui a URL real e teste em janela anônima. Não apresente o link do repositório como se fosse o link do sistema em execução.
+A versão publicada está disponível no Netlify:
 
-## Validação e limitações
+**https://super-tarsier-a1c51f.netlify.app**
 
-Consulte `docs/VALIDACAO.md`. Foram aprovados 13 testes de lógica e validados os cinco templates Vue. Testes limitados de navegador foram realizados com falha HTTP controlada, sem dados fictícios de parlamentares. Não foi concluído o build completo pelo Vue CLI neste ambiente, nem validada a consulta ao vivo à API, cujo acesso direto foi bloqueado. Isso não equivale a uma homologação integral.
+Para gerar uma versão de produção localmente, execute:
 
-## Entrega no repositório
+```bash
+npm run build
+```
 
-Destino: `Julia Paiva/Atividades/sistema_deputados` no repositório DW2026 informado pela aluna. Não enviar node_modules, ZIP ou apenas dist como substitutos do código-fonte. Não alterar trabalhos de outras pessoas.
-
-## Uso acadêmico responsável
-
-O projeto foi preparado com auxílio de IA. Revise, teste, personalize e compreenda o código antes de apresentar. Os extras não garantem nota nem dispensam a política da disciplina. Não declare autoria sem assistência se isso não refletir o processo real.
+Os arquivos gerados ficarão na pasta `dist/`.
 
 ## Referências
 
-- [Guia de criação Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
-- [Guia de publicação Vue CLI](https://cli.vuejs.org/guide/deployment.html)
-- [Guia GitHub do professor](https://fernandodx.github.io/help-github/guia_github.html)
-- [Netlify: publicação](https://docs.netlify.com/site-deploys/create-deploys/)
+- Dados Abertos da Câmara dos Deputados: https://dadosabertos.camara.leg.br/swagger/api.html
+- Vue.js: https://vuejs.org/
+- Vue CLI: https://cli.vuejs.org/
+- Netlify: https://www.netlify.com/

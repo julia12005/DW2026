@@ -1,9 +1,0 @@
-[
-  "Tratamento de erro HTTP na listagem: OK",
-  "Modo escuro: OK",
-  "Persistência do tema: OK",
-  "Sem transbordamento horizontal a 390 px no estado de erro: OK",
-  "Rota de detalhes e tratamento de erro: OK",
-  "Rota inexistente: OK",
-  "Sem exceções JavaScript nos cenários testados: OK"
-]
