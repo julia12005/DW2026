@@ -84,14 +84,7 @@ O projeto inclui testes para funções utilitárias e para o serviço HTTP, alé
 
 ```text
 sistema_deputados/
-├── docs/
-│   ├── CRITERIOS.md
-│   ├── GUIA_WINDOWS.md
-│   ├── TESTES_EXECUTADOS.txt
-│   ├── TESTES_NAVEGADOR.json
-│   └── VALIDACAO.md
 ├── prints/
-│   ├── LEIA-ME.md
 │   └── Captura de Tela (88–95).png
 ├── public/
 │   ├── favicon.ico
