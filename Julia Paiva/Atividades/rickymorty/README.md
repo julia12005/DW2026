@@ -40,7 +40,3 @@ Inclua no envio:
 
 1. Tela completa com a listagem dos personagens em cards.
 2. Imagem destacando os indicadores de status vivo, morto e desconhecido.
-
-## Estrutura sugerida no repositório da turma
-
-`seuNome/atividades/rickymorty`
