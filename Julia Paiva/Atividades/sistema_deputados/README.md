@@ -135,7 +135,6 @@ sistema_deputados/
 | `src/utils.mjs` | Funções auxiliares utilizadas pela aplicação. |
 | `src/assets/styles.css` | Estilos, temas e responsividade. |
 | `tests/` | Testes automatizados. |
-| `docs/` | Critérios, orientações e registros de validação. |
 
 ## Publicação
 
