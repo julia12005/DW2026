@@ -85,7 +85,8 @@ O projeto inclui testes para funções utilitárias e para o serviço HTTP, alé
 ```text
 sistema_deputados/
 ├── prints/
-│   └── Captura de Tela (88–95).png
+│   ├── Captura de Tela (92).png
+│   └── Captura de Tela (93).png
 ├── public/
 │   ├── favicon.ico
 │   └── index.html
