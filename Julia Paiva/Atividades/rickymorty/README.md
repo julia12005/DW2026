@@ -36,7 +36,7 @@ Execute `npm run build`.
 
 ## Prints para entrega
 
-Inclua no envio:
+envio:
 
 1. Tela completa com a listagem dos personagens em cards.
 2. Imagem destacando os indicadores de status vivo, morto e desconhecido.
