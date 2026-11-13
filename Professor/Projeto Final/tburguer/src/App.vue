@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
+  <nav class="navbar navbar-expand navbar-dark">
+    <router-link class="navbar-brand" to="/">Home</router-link> |
     <router-link to="/pedidos">Pedidos</router-link>
   </nav>
   <router-view />
