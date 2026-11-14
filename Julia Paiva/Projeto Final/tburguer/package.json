@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "bancojson": "json-server --watch banco_mock/db.json"
+    "bancojson": "json-server --watch banco_mock/db.json --port 3000",
+    "BancoJason": "json-server --watch banco_mock/db.json --port 3000"
   },
   "dependencies": {
     "core-js": "^3.8.3",
